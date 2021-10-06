@@ -3,19 +3,11 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.css";
-import { BrowserRouter as Router } from "react-router-dom";
-import { Provider } from "react-redux";
-import store from "./core/store";
 import "react-toastify/dist/ReactToastify.css";
-import "./components/AddProduct/addProduct.scss";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <Router basename={process.env.PUBLIC_URL}>
-        <App />
-      </Router>
-    </Provider>
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );

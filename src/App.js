@@ -1,13 +1,11 @@
-import Header from "./components/Header";
-import AppRoutes from "./components/AppRoutes";
 import { ToastContainer } from "react-toastify";
+import AddOrder from "./components/AddOrder.jsx";
 
 const App = () => {
   return (
     <>
       <ToastContainer />
-      <Header />
-      <AppRoutes />
+      <AddOrder />
     </>
   );
 };

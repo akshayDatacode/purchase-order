@@ -5,9 +5,9 @@ const Schema = mongoose.Schema;
 const orderSchema = new Schema(
   {
     id: { type: String },
-    email: { type: String },
-    order: { type: Array },
-    total: { type: String },
+    buyer: { type: String },
+    seller: { type: String },
+    products: { type: Array },
   },
   {
     timestamps: [{ createdAt: "created_at", updatedAt: "updated_at" }],
