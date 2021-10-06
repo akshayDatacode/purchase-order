@@ -56,7 +56,7 @@ const AddOrder = () => {
               <input type="text" onChange={(e) => setSeller(e.target.value)} name="seller" value={seller} className="form-control" placeholder="Seller" />
             </div>
 
-            <div className="row">
+            <div className="row m-0">
               <div className="col-12">
                 <ul>
                   {products && products.map((item, i) => (
