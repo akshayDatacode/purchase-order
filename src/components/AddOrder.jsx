@@ -41,6 +41,11 @@ const AddOrder = () => {
     }
   }
 
+  const handleRemoveItem = (itm) => {
+    const itemRef = products.filter((item) => item !== itm)
+    setProducts(itemRef)
+  }
+
   return (
     <>
       <div className="row p-3 m-0 d-flex justify-content-center">
@@ -60,7 +65,7 @@ const AddOrder = () => {
               <div className="col-12">
                 <ul>
                   {products && products.map((item, i) => (
-                    <li key={i}>{item}</li>
+                    <li key={i}>{item} <i onClick={() => handleRemoveItem(item)} className="fal fa-times" /></li>
                   ))}
                 </ul>
                 <div className="form-group my-3">
