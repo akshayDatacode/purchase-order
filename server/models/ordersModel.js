@@ -8,6 +8,7 @@ const orderSchema = new Schema(
     buyer: { type: String },
     seller: { type: String },
     products: { type: Array },
+    status: { type: String },
   },
   {
     timestamps: [{ createdAt: "created_at", updatedAt: "updated_at" }],

@@ -1,12 +1,13 @@
 const Order = require("../models/ordersModel");
 
 const addOrder = async (req, res, next) => {
-  const { id, seller, products, buyer } = req.body;
+  const { id, seller, products, buyer, status } = req.body;
   const createdOrder = new Order({
     id,
     seller,
     products,
     buyer,
+    status: "incomplete",
   });
 
   try {
@@ -34,5 +35,23 @@ const getOrders = async (req, res) => {
   }
 };
 
+const editOrder = async (req, res) => {
+  const data = req.body;
+  try {
+    const updatedOrder = await Order.findOneAndUpdate(
+      { _id: req.params.id },
+      data
+    );
+    return res.send({
+      success: true,
+      problem: updatedOrder,
+    });
+  } catch (error) {
+    console.error(error);
+    return res.send({ success: false });
+  }
+};
+
 exports.addOrder = addOrder;
 exports.getOrders = getOrders;
+exports.editOrder = editOrder;

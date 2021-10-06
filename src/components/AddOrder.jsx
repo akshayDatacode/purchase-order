@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { toast } from 'react-toastify';
-import { addOrder } from '../apiServices'
+import { addOrder, getOrders } from '../apiServices'
 
 
 const AddOrder = () => {

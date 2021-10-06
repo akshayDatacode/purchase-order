@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { getOrders } from '../apiServices'
+import { getOrders, confirmOrder } from '../apiServices'
 
 const Orders = () => {
   const [orders, setOrders] = useState()
@@ -10,7 +10,13 @@ const Orders = () => {
         setOrders(res.data.orders)
       }
     })
-  }, [])
+  }, [confirmOrder])
+
+  const handleconfirmOrder = (id) => {
+    const data = {}
+    data['status'] = 'complete'
+    confirmOrder(data, id)
+  }
 
   return (
     <>
@@ -30,7 +36,14 @@ const Orders = () => {
             </ul>
           </div>
           <div className="col-md-2 col-12 border rounded bg-dark d-flex align-items-center p-2">
-            <button className="btn btn-primary">Order Completed</button>
+            {
+              item.status === 'complete' ?
+                <div className="">
+                  <h6 className="text-white">Status:</h6>
+                  <span className="text-success bg-white p-2 rounded">Order Delivered</span>
+                </div> :
+                <button onClick={() => handleconfirmOrder(item._id)} className="btn btn-primary">Order Completed</button>
+            }
           </div>
         </div>
       ))
